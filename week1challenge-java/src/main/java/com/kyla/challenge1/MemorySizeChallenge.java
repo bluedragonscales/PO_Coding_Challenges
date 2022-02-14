@@ -17,10 +17,9 @@ public class MemorySizeChallenge {
 //                -If the actual memory size was greater than 1 GB, round your result to two decimal places.
 //        -If the memory size after adjustment is smaller than 1 GB, return the result in MB.
 
-
-
-        String memoryAnswer = memoryCalc("512GB");
-        System.out.println(memoryAnswer);
+        System.out.println(memoryCalc("32GB"));
+        System.out.println(memoryCalc("2GB"));
+        System.out.println(memoryCalc("512MB"));
 
     }
 
