@@ -19,14 +19,35 @@ public class MemorySizeChallenge {
 
 
 
-
+        String memoryAnswer = memoryCalc("512GB");
+        System.out.println(memoryAnswer);
 
     }
 
 
     public static String memoryCalc(String memory) {
         String correctMemory = "";
+        int stringMeasurement = memory.indexOf("B") -1;
+        int stringBytes = memory.indexOf("B");
+        String memoryType = memory.substring(stringMeasurement, stringBytes+1);
+
+        double memoryAmount = Double.parseDouble(memory.substring(0, stringMeasurement));
+        double multipliedMemory = memoryAmount * 0.07;
+
+        double adjustedMemory = memoryAmount - multipliedMemory;
+
+        int mbType = 0;
+        if(memoryType.equals("MB")) {
+            mbType = (int) adjustedMemory;
+            correctMemory = mbType + memoryType;
+        }
+        else {
+            double memRounded = Math.round(adjustedMemory * 100) / 100.00;
+            correctMemory = memRounded + memoryType;
+        }
+
         return correctMemory;
+
     }
 
 }
